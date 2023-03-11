@@ -62,7 +62,7 @@ class Connection(BaseConnection):
             **kwargs,
         )
         if user and password:
-            self.es = Elasticsearch(self.url, http_auth=(user, password), **self.kwargs)
+            self.es = Elasticsearch(self.url, http_auth=(user, password), **self.kwargs, , extra_headers={'Origin': 'meta'})
         else:
             self.es = Elasticsearch(self.url, **self.kwargs)
 
